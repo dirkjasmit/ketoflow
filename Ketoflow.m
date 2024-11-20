@@ -186,6 +186,11 @@ guidata(hObject,data)
 
 set(hObject, 'Backgroundcolor', [1,1,0])
 data.pushbuttonExtract.BackgroundColor = [0,1,0];
+data.pushbuttonEpoch.BackgroundColor = [1,1,0];
+data.pushbuttonScore.BackgroundColor = [1,1,0];
+data.pushbuttonFilter.BackgroundColor = [0.0745    0.6235    1.0000];
+data.pushbuttonAbs.BackgroundColor = [0.0745    0.6235    1.0000];
+data.pushbuttonEnvelope.BackgroundColor = [0.0745    0.6235    1.0000];
 
 
 
@@ -210,8 +215,9 @@ function pushbuttonExtract_Callback(hObject, eventdata, handles)
 
 data = guidata(hObject);
 set(hObject, 'Backgroundcolor', [1,0,0])
+pause(.05)
 
-data.EEG = pop_select(data.EEG, 'channel', {'POz','Oz'});
+data.EEG = pop_select(data.EEG, 'channel', {'PO5','Oz'});
 if data.EEG.nbchan<2
     beep
     warning('One or more channels (Oz, PO5) are missing')
@@ -261,6 +267,10 @@ function pushbuttonSave_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
+% push the data
+data = guidata(hObject);
+global EEG
+EEG = data.EEG;
 
 % --- Executes on button press in pushbuttonFilter.
 function pushbuttonFilter_Callback(hObject, eventdata, handles)
@@ -277,6 +287,8 @@ data.EEG = pop_eegfiltnew(data.EEG, 48, 52, [], true);
 
 % push the data
 guidata(hObject,data)
+
+set(hObject, 'Backgroundcolor', [0.0745    0.6235    1.0000] .* [2 1.5 1]);
 
 
 
@@ -311,6 +323,7 @@ end
 
 data.uitableAggScores.Data = [typ' avg'];
     
+set(hObject, 'Backgroundcolor', [1,1,0])
 
 
 % --- Executes on button press in pushbuttonView.
@@ -330,7 +343,7 @@ end
 
 scr = get(0, 'ScreenSize');
 
-eegplot(tmp.data, 'eloc_file',tmp.chanlocs, 'winlength',8, 'spacing', 50, ...
+eegplot(tmp.data, 'eloc_file',tmp.chanlocs, 'winlength',8, 'spacing', 1500, ...
     'events', tmp.event, 'srate', tmp.srate, 'position', [scr(1),scr(2),scr(3)*.7,scr(4)*.8] );
 
 
@@ -341,11 +354,16 @@ function pushbuttonAbs_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 
 data = guidata(hObject);
+set(hObject, 'Backgroundcolor', [0.6235  0.0745    1.0000]);
+pause(.1);
 
 data.EEG.data = abs(data.EEG.data);
 
 % push the data
 guidata(hObject,data)
+
+set(hObject, 'Backgroundcolor', [0.0745    0.6235    1.0000] .* [2 1.5 1]);
+
 
 
 
@@ -356,11 +374,17 @@ function pushbuttonEnvelope_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 
 data = guidata(hObject);
+set(hObject, 'Backgroundcolor', [0.6235  0.0745    1.0000]);
+pause(.1);
+
 
 data.EEG.data = abs(hilbert(data.EEG.data'))';
 
 % push the data
 guidata(hObject,data)
+
+set(hObject, 'Backgroundcolor', [0.0745    0.6235    1.0000] .* [2 1.5 1]);
+
 
 
 % --- Executes on selection change in popupmenuLo.
