@@ -58,6 +58,15 @@ handles.output = hObject;
 % Update handles structure
 guidata(hObject, handles);
 
+% locate eeglab and activate it
+if exist('eeglab', 'file') == 2
+    eeglab;
+else
+    addpath('./eeglab2023.1.light');
+    eeglab;
+end
+
+
 % UIWAIT makes Ketoflow wait for user response (see UIRESUME)
 % uiwait(handles.figure1);
 
