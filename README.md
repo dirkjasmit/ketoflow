@@ -23,11 +23,12 @@ Start GUI:
 <img width="311" alt="image" src="https://github.com/user-attachments/assets/87f3c634-2741-40fd-996c-3a63200c2561">
 
 Follow the buttons (largely) from top to bottom
-- Open
-- Extract
-- Epoch
+- Open: select the exported file.
+- Extract: extracts the PO5 and Oz channels, which are then subtracted from each other (Oz as ref).
+- Epoch: this is done locked to events 15--19. See description file for the meaning of the events. Other events are habituation events and prepulses, but these are not used for epoching. epoching is done from 200 ms prestim (-200 ms) to 300 ms post, with a baseline adjustement from -200 to -120, as -120 is when the prepulse may starts in some trials.
 - (optional filter)
-- click Abs: taking Abs is recommended
-- Score
-Copy the data from the top table for getting dat from each trial
-Copy from the bottom table to get summary (peak amplitude avg across trails types 15--19, window 20-120 ms)
+- click Abs for taking the absolute value of the responses.
+- Score max amplitude from 20 to 120 ms post stimulus:
+
+Copy the data from the top table for getting data from each trial for the file.
+Copy from the bottom table to get summary data (peak amplitude avg across trails types 15--19, window 20-120 ms)
