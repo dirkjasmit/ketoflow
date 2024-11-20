@@ -58,6 +58,16 @@ handles.output = hObject;
 % Update handles structure
 guidata(hObject, handles);
 
+% update fontsize for linux
+if isunix && ~ismac
+    ch = get(hObject, 'child');
+    for c=ch'
+        if isfield(c, 'fontsize')
+            set(c, 'fontsize', get(c, 'fontsize')-2)
+        end
+    end
+end
+
 % locate eeglab and activate it
 if exist('eeglab', 'file') == 2
     eeglab;
