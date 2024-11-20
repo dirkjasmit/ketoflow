@@ -3,8 +3,9 @@ Analyze EMG signals for PPI keto project
 
 MATLAB toolbox for the PPI experiment measured with the ANT Neuro Eego and waveguard cap w/ 4 EOG/EMG leads
 
-* Install MATLAB
-* Install EEGLAB (tested with 2023 version)
+*** SETUP WITH MATLAB INSTALLED ***
+
+* Install EEGLAB (tested with 2023 version) or unpack the eeglab zip file (light vesion). Make sure the folder is in the same directory as the Ketoflow.m and .fig files. 
 * Using the Manage EEGLAB extensions install:
   - bva-io
   - ANTeepimport
