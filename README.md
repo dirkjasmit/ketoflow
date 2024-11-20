@@ -26,7 +26,8 @@ Follow the buttons (largely) from top to bottom
 - Open
 - Extract
 - Epoch
-- (optional filter and taking absolute value)
+- (optional filter)
+- click Abs: taking Abs is recommended
 - Score
 Copy the data from the top table for getting dat from each trial
 Copy from the bottom table to get summary (peak amplitude avg across trails types 15--19, window 20-120 ms)
