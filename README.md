@@ -9,8 +9,6 @@ Analyze EMG signals for PPI keto project. MATLAB toolbox for the PPI experiment 
 - To start: export the recodring as brain vision analyzer or ANT neuro cnt file. **NOTE** do not apply the montage when exporting (default is ON, must be OFF)
 ### To analyze
 - open MATLAB
-- run >>addpath(<EEGLAB folder>)
-- run >>eeglab
 - run >>guide and navigate to the Ketoflow.fig file. This will open the editor
 - run the Ketoflow GUI with the green triangle (run button)
 <img width="311" alt="image" src="https://github.com/user-attachments/assets/87f3c634-2741-40fd-996c-3a63200c2561">
