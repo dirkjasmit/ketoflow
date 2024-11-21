@@ -12,6 +12,7 @@ Analyze EMG signals for PPI keto project. MATLAB toolbox for the PPI experiment 
 - run >>guide and navigate to the Ketoflow.fig file. This will open the editor
 - run the Ketoflow GUI with the green triangle (run button)
 <img width="311" alt="image" src="https://github.com/user-attachments/assets/87f3c634-2741-40fd-996c-3a63200c2561">
+
 ### GUI instructions
 Follow the buttons (largely) from top to bottom
 - Open: select the exported file.
